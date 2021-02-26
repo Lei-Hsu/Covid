@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { device } from "../media/media";
-import { API_KEY } from "../KEY/APIKEY";
 import LoadingPage from "./LoadingPage";
+import useFetchSinge from "../customHooks/useFetchSinge";
 const Container = styled.div`
   margin-top: 100px;
   margin-bottom: 100px;
@@ -60,21 +60,7 @@ const DetailBox = styled.div`
 `;
 function HomePage() {
   const [tawianData, setTaiwanData] = useState(null);
-  useEffect(() => {
-    fetch("https://covid-193.p.rapidapi.com/statistics?country=taiwan", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        "x-rapidapi-key": API_KEY,
-        "x-rapidapi-host": "covid-193.p.rapidapi.com",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setTaiwanData(data.response[0]))
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  useFetchSinge("taiwan", setTaiwanData);
 
   return (
     <>

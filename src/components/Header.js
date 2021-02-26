@@ -44,7 +44,9 @@ function Header() {
   return (
     <Navbar>
       <Title>
-        <TitleH1>COVID</TitleH1>
+        <Link to="/">
+          <TitleH1>COVID</TitleH1>
+        </Link>
       </Title>
       <Nav>
         <Link to="/search">搜尋</Link>
