@@ -47,8 +47,8 @@ function Header() {
         <TitleH1>COVID</TitleH1>
       </Title>
       <Nav>
-        <Link>搜尋</Link>
-        <Link>排行榜</Link>
+        <Link to="/search">搜尋</Link>
+        <Link to="/board">排行榜</Link>
       </Nav>
     </Navbar>
   );
