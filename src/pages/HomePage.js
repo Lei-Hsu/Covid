@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { device } from "../media/media";
 import { API_KEY } from "../KEY/APIKEY";
+import LoadingPage from "./LoadingPage";
 const Container = styled.div`
   margin-top: 100px;
+  margin-bottom: 100px;
   grid-column: 2/12;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  @media ${device.pad} {
+    margin-top: 180px;
+  }
 `;
 
 const CountryName = styled.div`
@@ -73,7 +78,7 @@ function HomePage() {
 
   return (
     <>
-      {tawianData && (
+      {tawianData ? (
         <Container>
           <CountryName>
             <h1>{tawianData.country}</h1>
@@ -105,6 +110,8 @@ function HomePage() {
             </DetailBox>
           </Detail>
         </Container>
+      ) : (
+        <LoadingPage />
       )}
     </>
   );
