@@ -16,7 +16,7 @@ const useFetchSinge = (country, setData) => {
       .catch((err) => {
         alert(err);
       });
-  }, []);
+  }, [country, setData]);
 };
 
 export default useFetchSinge;
