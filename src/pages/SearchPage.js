@@ -69,12 +69,15 @@ function SearchPage() {
   const [allCountryData, setAllcounryData] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [err, setErr] = useState(false);
+  // input value
   const handleChange = useCallback((e) => {
     setSearchData(e.target.value);
   }, []);
+  // button sent requset to API
   const SearchSubmit = useCallback(
     (e) => {
       e.preventDefault();
+      // pending -> loadingPage
       setIsPending(true);
       fetch(
         "https://covid-193.p.rapidapi.com/statistics?country=" + searchData,
@@ -88,7 +91,9 @@ function SearchPage() {
         }
       )
         .then((res) => res.json())
+        // 取消loadingPage
         .then((data) => setCountryData(data.response[0], setIsPending(false)))
+        // 回傳失敗呈現錯誤
         .then(typeof countryData !== "object" && setErr(true))
         .catch((err) => {
           alert(err);
@@ -96,6 +101,7 @@ function SearchPage() {
     },
     [countryData, searchData]
   );
+  //傳給子層回傳回來的method
   const handleChangeSelectBox = (event) => {
     setCountryData(event.target.value);
   };

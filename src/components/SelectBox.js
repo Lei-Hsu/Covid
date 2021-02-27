@@ -44,6 +44,7 @@ export default function SelectBox({
           onClose={handleClose}
           onOpen={handleOpen}
           value={countryData}
+          //傳入父層method回傳資料給父層
           onChange={handleChangeSelectBox}
         >
           <MenuItem value="">
