@@ -17,7 +17,7 @@ const CountryDataWrapper = styled.div`
     margin-top: 180px;
   }
 `;
-function Board() {
+function BoardPage() {
   const [wholeData, setWholeData] = useState(null);
   useEffect(() => {
     fetch("https://covid-193.p.rapidapi.com/statistics", {
@@ -41,4 +41,4 @@ function Board() {
   );
 }
 
-export default Board;
+export default BoardPage;
