@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useCallback, useState, useRef } from "react";
 import styled from "styled-components";
 import SearchDataBox from "../components/SearchDataBox";
 import SelectBox from "../components/SelectBox";
 import { device } from "../media/media";
 import { API_KEY } from "../KEY/APIKEY";
 import LoadingPage from "./LoadingPage";
+import useFetchAllCountry from "../customHooks/useFetchAllCountry";
 
 const SearchWrapper = styled.div`
   margin-top: 100px;
@@ -65,35 +66,41 @@ const Warnning = styled.p`
 function SearchPage() {
   const [searchData, setSearchData] = useState("");
   const [countryData, setCountryData] = useState("");
+  const [allCountryData, setAllcounryData] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [err, setErr] = useState(false);
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     setSearchData(e.target.value);
-  };
-  const SearchSubmit = (e) => {
-    e.preventDefault();
-    setIsPending(true);
-    fetch("https://covid-193.p.rapidapi.com/statistics?country=" + searchData, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        "x-rapidapi-key": API_KEY,
-        "x-rapidapi-host": "covid-193.p.rapidapi.com",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) =>
-        setCountryData(
-          data.response[0],
-          setIsPending(false),
-          countryData == null && setErr(true)
-        )
+  }, []);
+  const SearchSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      setIsPending(true);
+      fetch(
+        "https://covid-193.p.rapidapi.com/statistics?country=" + searchData,
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            "x-rapidapi-key": API_KEY,
+            "x-rapidapi-host": "covid-193.p.rapidapi.com",
+          },
+        }
       )
-      .then(console.log(countryData, err))
-      .catch((err) => {
-        alert(err);
-      });
+        .then((res) => res.json())
+        .then((data) => setCountryData(data.response[0], setIsPending(false)))
+        .then(typeof countryData !== "object" && setErr(true))
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    [countryData, searchData]
+  );
+  const handleChangeSelectBox = (event) => {
+    setCountryData(event.target.value);
   };
+  const select = useRef();
+  useFetchAllCountry(setAllcounryData);
   return (
     <>
       <SearchWrapper>
@@ -108,11 +115,17 @@ function SearchPage() {
           <button onClick={SearchSubmit}>搜尋</button>
         </InputArea>
         {err && <Warnning>請重新輸入英文國家名</Warnning>}
-        <SelectArea>
-          <SelectBox
-            countryData={countryData}
-            setCountryData={setCountryData}
-          />
+        <SelectArea ref={select}>
+          {allCountryData ? (
+            <SelectBox
+              allCountryData={allCountryData}
+              countryData={countryData}
+              setCountryData={setCountryData}
+              handleChangeSelectBox={handleChangeSelectBox}
+            />
+          ) : (
+            <LoadingPage />
+          )}
         </SelectArea>
         {isPending ? (
           <LoadingPage />

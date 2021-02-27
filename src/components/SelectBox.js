@@ -16,13 +16,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SelectBox({ countryData, setCountryData }) {
+export default function SelectBox({
+  allCountryData,
+  countryData,
+  handleChangeSelectBox,
+}) {
+  //   const { setCountryData } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
-  const handleChange = (event) => {
-    setCountryData(event.target.value);
-  };
 
   const handleClose = () => {
     setOpen(false);
@@ -43,17 +44,18 @@ export default function SelectBox({ countryData, setCountryData }) {
           onClose={handleClose}
           onOpen={handleOpen}
           value={countryData}
-          onChange={handleChange}
+          onChange={handleChangeSelectBox}
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {countryData.map((data, i) => {
-            return <MenuItem value={data}>{data}</MenuItem>;
+          {allCountryData.map((data, i) => {
+            return (
+              <MenuItem key={i} value={data}>
+                {data.country}
+              </MenuItem>
+            );
           })}
-          {/* <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
       </FormControl>
     </div>

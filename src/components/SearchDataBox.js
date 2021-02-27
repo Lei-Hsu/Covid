@@ -61,23 +61,23 @@ function SearchDataBox({ countryData }) {
       <Detail>
         <DetailBox>
           <h2>人口總數</h2>
-          <p>{countryData.population}</p>
+          <p>{countryData.population || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>確診人數</h2>
-          <p>{countryData.cases.total}</p>
+          <p>{countryData.cases.total || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>死亡人數</h2>
-          <p>{countryData.deaths.total}</p>
+          <p>{countryData.deaths.total || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>今日新增</h2>
-          <p>{countryData.cases.new}</p>
+          <p>{countryData.cases.new || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>康復人數</h2>
-          <p>{countryData.cases.recovered}</p>
+          <p>{countryData.cases.recovered || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>搜尋日期</h2>
