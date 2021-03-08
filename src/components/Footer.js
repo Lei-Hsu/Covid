@@ -11,6 +11,7 @@ const PageFooter = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 99;
   background: #ed213a; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,

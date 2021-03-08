@@ -15,10 +15,22 @@ const SearchWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  animation: hide 250ms ease-in forwards;
+  @keyframes hide {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 const InputArea = styled.div`
   min-width: 60%;
-  heigth: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +45,7 @@ const InputArea = styled.div`
     font-size: 18px;
     border: none;
     border-bottom: 2px solid #333;
+    border-radius: 0;
     outline: none;
     @media ${device.pad} {
       width: 80%;
@@ -54,8 +67,12 @@ const InputArea = styled.div`
   }
 `;
 const SelectArea = styled.div`
-  margin-top: 10px;
+  text-align: center;
+  margin-top: 40px;
   min-width: 60%;
+  @media ${device.pad} {
+    margin-top: 100px;
+  }
 `;
 
 const ShowDataArea = styled.div``;
@@ -94,12 +111,12 @@ function SearchPage() {
         // 取消loadingPage
         .then((data) => setCountryData(data.response[0], setIsPending(false)))
         // 回傳失敗呈現錯誤
-        .then(typeof countryData !== "object" && setErr(true))
+        .then(setErr(true))
         .catch((err) => {
           alert(err);
         });
     },
-    [countryData, searchData]
+    [searchData]
   );
   //傳給子層回傳回來的method
   const handleChangeSelectBox = (event) => {

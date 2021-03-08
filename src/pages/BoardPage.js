@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { device } from "../media/media";
-import CountryData from "../components/CountryData";
+import CountryDataBoard from "../components/board/CountryDataBoard";
 import { useEffect, useState } from "react";
 import { API_KEY } from "../KEY/APIKEY";
 import LoadingPage from "./LoadingPage";
 
 const CountryDataWrapper = styled.div`
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
   @media ${device.pad} {
-    margin-top: 180px;
+    margin-top: 100px;
   }
 `;
 function BoardPage() {
@@ -36,7 +36,7 @@ function BoardPage() {
   }, []);
   return (
     <CountryDataWrapper>
-      {wholeData ? <CountryData wholeData={wholeData} /> : <LoadingPage />}
+      {wholeData ? <CountryDataBoard wholeData={wholeData} /> : <LoadingPage />}
     </CountryDataWrapper>
   );
 }

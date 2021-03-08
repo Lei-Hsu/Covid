@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { device } from "../media/media";
-import useFetchBoardCountry from "../customHooks/useFetchBoradCountry";
+import useFetchBoardCountry from "../customHooks/useFetchBoardCountry";
 
 const AreaData = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ const AreaData = styled.div`
 const AreaName = styled.h1`
   width: 100%;
   text-align: center;
-  font-weight: blod;
+  font-weight: bold;
 `;
 const CountryName = styled.h2``;
 const NewCases = styled.p`
@@ -33,7 +33,7 @@ function CountryData({ wholeData }) {
     global,
     asia,
     europe,
-    americaTatol,
+    americaTotal,
     africa,
     oceania,
   } = useFetchBoardCountry(wholeData.response);
@@ -83,7 +83,7 @@ function CountryData({ wholeData }) {
       </DataArea>
       <DataArea>
         <AreaName>美洲排行</AreaName>
-        {americaTatol.map((data, i) => {
+        {americaTotal.map((data, i) => {
           return (
             <AreaData key={i}>
               <CountryName>

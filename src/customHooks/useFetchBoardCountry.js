@@ -22,7 +22,7 @@ const useFetchBoardCountry = (wholeData) => {
   let nAmerica = wholeData.filter((data) => data.continent === "North-America");
   let sAmerica = wholeData.filter((data) => data.continent === "South-America");
   Array.prototype.push.apply(nAmerica, sAmerica);
-  let americaTatol = nAmerica
+  let americaTotal = nAmerica
     .filter(
       (data) =>
         data.continent === "North-America" && data.continent !== data.country
@@ -43,7 +43,7 @@ const useFetchBoardCountry = (wholeData) => {
     )
     .sort((a, b) => b.cases.new - a.cases.new)
     .slice(0, 5);
-  return { global, asia, europe, americaTatol, africa, oceania };
+  return { global, asia, europe, americaTotal, africa, oceania };
 };
 
 export default useFetchBoardCountry;

@@ -9,6 +9,7 @@ const Navbar = styled.div`
   left: 0;
   right: 0;
   display: flex;
+  z-index: 99;
   justify-content: space-between;
   align-items: center;
   grid-column: 1/13;

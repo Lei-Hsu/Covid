@@ -12,6 +12,18 @@ const Container = styled.div`
   @media ${device.pad} {
     margin-top: 180px;
   }
+  animation: hide 250ms ease-in forwards;
+  @keyframes hide {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 const CountryName = styled.div`
