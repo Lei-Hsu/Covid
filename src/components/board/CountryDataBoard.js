@@ -3,26 +3,15 @@ import styled from "styled-components";
 import { device } from "../../media/media";
 import useFetchBoardCountry from "../../customHooks/useFetchBoardCountry";
 import { Pie } from "react-chartjs-2";
+import { animation } from "../../animation";
 
 const BoardWrapper = styled.div`
   width: 100%;
   display: flex;
-  margin-bottom: 80px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: hide 250ms ease-in forwards;
-  @keyframes hide {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  ${animation}
 `;
 const LocationBtnArea = styled.div`
   width: 100%;
@@ -31,7 +20,9 @@ const LocationBtnArea = styled.div`
   align-items: center;
   text-align: center;
   height: 40px;
-  margin-bottom: 40px;
+  @media ${device.pad} {
+    margin-bottom: 40px;
+  }
 `;
 const LocationBtn = styled.button`
   width: 16.6%;
@@ -142,8 +133,6 @@ function CountryDataBoard({ wholeData }) {
   const dataCountryCase = nowArea.map((item) => item.cases.new);
   //圓餅圖
   const data = {
-    maintainAspectRatio: true,
-    responsive: true,
     //國名
     labels: dataCountryName,
     datasets: [
@@ -205,7 +194,7 @@ function CountryDataBoard({ wholeData }) {
           })}
         </Board>
         <Chart>
-          <Pie data={data} />
+          <Pie data={data} width={"70%"} height={"40%"} />
         </Chart>
       </DataArea>
       <Time>

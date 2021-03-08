@@ -7,14 +7,12 @@ import { API_KEY } from "../../KEY/APIKEY";
 import LoadingPage from "../LoadingPage";
 
 const CountryDataWrapper = styled.div`
-  margin-top: 100px;
-  margin-bottom: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
   @media ${device.pad} {
-    margin-top: 100px;
+    margin-top: 40px;
   }
 `;
 function BoardPage() {

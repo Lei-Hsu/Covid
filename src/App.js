@@ -7,7 +7,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { HashRouter, Switch, Route } from "react-router-dom";
 
-const Root = styled.div``;
+const Root = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 60px 0;
+`;
 
 function App() {
   return (

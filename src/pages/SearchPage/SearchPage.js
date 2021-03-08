@@ -6,27 +6,15 @@ import { device } from "../../media/";
 import { API_KEY } from "../../KEY/APIKEY";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import useFetchAllCountry from "../../customHooks/useFetchAllCountry";
+import { animation } from "../../animation";
 
 const SearchWrapper = styled.div`
-  margin-top: 100px;
-  margin-bottom: 100px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  animation: hide 250ms ease-in forwards;
-  @keyframes hide {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  ${animation};
 `;
 const InputArea = styled.div`
   min-width: 60%;
