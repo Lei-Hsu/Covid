@@ -1,11 +1,11 @@
 import React, { useCallback, useState, useRef } from "react";
 import styled from "styled-components";
-import SearchDataBox from "../components/SearchDataBox";
-import SelectBox from "../components/SelectBox";
-import { device } from "../media/media";
-import { API_KEY } from "../KEY/APIKEY";
-import LoadingPage from "./LoadingPage";
-import useFetchAllCountry from "../customHooks/useFetchAllCountry";
+import SearchDataBox from "../../components/Search/SearchDataBox";
+import SelectBox from "../../components/Search/SelectBox";
+import { device } from "../../media/";
+import { API_KEY } from "../../KEY/APIKEY";
+import LoadingPage from "../LoadingPage/LoadingPage";
+import useFetchAllCountry from "../../customHooks/useFetchAllCountry";
 
 const SearchWrapper = styled.div`
   margin-top: 100px;

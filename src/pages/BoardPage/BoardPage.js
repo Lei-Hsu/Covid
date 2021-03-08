@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { device } from "../media/media";
-import CountryDataBoard from "../components/board/CountryDataBoard";
+import { device } from "../../media/";
+import CountryDataBoard from "../../components/board/CountryDataBoard";
 import { useEffect, useState } from "react";
-import { API_KEY } from "../KEY/APIKEY";
-import LoadingPage from "./LoadingPage";
+import { API_KEY } from "../../KEY/APIKEY";
+import LoadingPage from "../LoadingPage";
 
 const CountryDataWrapper = styled.div`
   margin-top: 100px;

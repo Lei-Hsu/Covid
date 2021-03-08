@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { device } from "../media/media";
-import LoadingPage from "./LoadingPage";
-import useFetchSinge from "../customHooks/useFetchSinge";
+import { device } from "../../media/";
+import LoadingPage from "../LoadingPage";
+import useFetchSinge from "../../customHooks/useFetchSinge";
 const Container = styled.div`
   margin-top: 100px;
   margin-bottom: 100px;

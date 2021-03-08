@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { device } from "../media/media";
+import { device } from "../../media/media";
 
 const SearchDataBoxWrapper = styled.div`
   width: 100%;
