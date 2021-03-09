@@ -4,6 +4,7 @@ import { device } from "../../media/media";
 import useFetchBoardCountry from "../../customHooks/useFetchBoardCountry";
 import { Pie } from "react-chartjs-2";
 import { animation } from "../../animation";
+import { COLOR, FONT } from "../../constants/style";
 
 const BoardWrapper = styled.div`
   width: 100%;
@@ -29,13 +30,13 @@ const LocationBtn = styled.button`
   height: 30px;
   border: none;
   background: none;
-  font-size: 16px;
+  font-size: ${FONT.sm};
   font-weight: bold;
   :hover {
     border-bottom: solid red 2px;
   }
   @media ${device.pad} {
-    font-size: 20px;
+    font-size: ${FONT.md};
   }
 `;
 const DataArea = styled.div`
@@ -69,7 +70,7 @@ const TitleList = styled.ul`
   justify-content: space-between;
   align-items: center;
   li {
-    font-size: 18px;
+    font-size: ${FONT.sm};
     font-weight: 500;
   }
 `;
@@ -84,14 +85,14 @@ const DataList = styled.ul`
     text-align: center;
     :nth-child(1) {
       text-align: left;
-      font-size: 16px;
+      font-size: ${FONT.sm};
       font-weight: 600;
     }
     :nth-child(4) {
       text-align: right;
     }
     :nth-child(even) {
-      color: red;
+      color: ${COLOR.mainColor};
     }
   }
 `;
@@ -106,8 +107,8 @@ const Chart = styled.div`
 `;
 const Time = styled.h1`
   margin-top: 50px;
-  color: red;
-  font-size: 16px;
+  color: ${COLOR.mainColor};
+  font-size: ${FONT.sm};
   @media ${device.pad} {
     font-size: 30px;
   }

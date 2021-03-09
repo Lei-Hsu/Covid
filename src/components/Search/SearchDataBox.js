@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { device } from "../../media/media";
+import { COLOR, FONT } from "../../constants/style";
 
 const SearchDataBoxWrapper = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ const Detail = styled.div`
   align-items: center;
   flex-direction: column;
   div:nth-child(even) {
-    color: red;
+    color: ${COLOR.mainColor};
   }
   @media ${device.pad} {
     display: flex;
@@ -46,7 +47,7 @@ const DetailBox = styled.div`
     text-align: center;
   }
   p {
-    font-size: 20px;
+    font-size: ${FONT.md};
     font-weight: bold;
     text-align: center;
   }

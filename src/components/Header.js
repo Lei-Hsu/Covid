@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { COLOR } from "../constants/style";
 
 const Navbar = styled.div`
   height: 60px;
@@ -25,12 +26,12 @@ const Title = styled.div`
   margin-left: 10px;
 `;
 const TitleH1 = styled.h1`
-  color: #ffffff;
+  color: ${COLOR.secondColor};
 `;
 const Nav = styled.div`
   margin-left: 0 auto;
   a {
-    color: #ffffff;
+    color: ${COLOR.secondColor};
     width: 100%;
     height: 100%;
     margin-right: 10px;

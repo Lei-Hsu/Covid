@@ -38,7 +38,7 @@ function Chart({ wholeWorldData }) {
     labels: historyDate,
     datasets: [
       {
-        label: "新增確診人數",
+        label: "每日新增確診人數",
         //人數資料
         data: historyTotal,
         backgroundColor: "#ed213a",

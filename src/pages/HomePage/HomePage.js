@@ -5,6 +5,7 @@ import LoadingPage from "../LoadingPage";
 import { animation } from "../../animation/";
 import useFetchSinge from "../../customHooks/useFetchSinge";
 import Chart from "../../components/HomePage/Chart";
+import { FONT, COLOR } from "../../constants/style";
 
 const Container = styled.div`
   width: 100%;
@@ -45,7 +46,8 @@ const Data = styled.div`
 `;
 const DataTitle = styled.h3``;
 const DataInfo = styled.p`
-  color: red;
+  color: ${COLOR.mainColor};
+  font-size: ${FONT.md};
   font-weight: 600;
 `;
 const ChartArea = styled.div`

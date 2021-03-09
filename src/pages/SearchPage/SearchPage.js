@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef } from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import SearchDataBox from "../../components/Search/SearchDataBox";
 import SelectBox from "../../components/Search/SelectBox";
@@ -6,6 +6,7 @@ import { device } from "../../media/";
 import { API_KEY } from "../../KEY/APIKEY";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import useFetchAllCountry from "../../customHooks/useFetchAllCountry";
+import { FONT, COLOR } from "../../constants/style";
 import { animation } from "../../animation";
 
 const SearchWrapper = styled.div`
@@ -30,7 +31,7 @@ const InputArea = styled.div`
     width: 100%;
     height: 6vh;
     text-align: center;
-    font-size: 18px;
+    font-size: ${FONT.md};
     border: none;
     border-bottom: 2px solid #333;
     border-radius: 0;
@@ -43,8 +44,8 @@ const InputArea = styled.div`
     width: 100%;
     height: 6vh;
     margin-top: 10px;
-    font-size: 16px;
-    color: #ffffff;
+    font-size: ${FONT.md};
+    color: ${COLOR.secondColor};
     border-radius: 10px;
     border: none;
     background: red;
@@ -64,21 +65,21 @@ const SelectArea = styled.div`
 `;
 
 const ShowDataArea = styled.div``;
-const Warnning = styled.p`
-  color: red;
-  font-size: 16px;
+const Warning = styled.p`
+  color: ${COLOR.mainColor};
+  font-size: ${FONT.sm};
 `;
 function SearchPage() {
   const [searchData, setSearchData] = useState("");
   const [countryData, setCountryData] = useState("");
-  const [allCountryData, setAllcounryData] = useState("");
+  const [allCountryData, setAllCountryData] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [err, setErr] = useState(false);
   // input value
   const handleChange = useCallback((e) => {
     setSearchData(e.target.value);
   }, []);
-  // button sent requset to API
+  // button sent request to API
   const SearchSubmit = useCallback(
     (e) => {
       e.preventDefault();
@@ -110,8 +111,7 @@ function SearchPage() {
   const handleChangeSelectBox = (event) => {
     setCountryData(event.target.value);
   };
-  const select = useRef();
-  useFetchAllCountry(setAllcounryData);
+  useFetchAllCountry(setAllCountryData);
   return (
     <>
       <SearchWrapper>
@@ -125,8 +125,8 @@ function SearchPage() {
           />
           <button onClick={SearchSubmit}>搜尋</button>
         </InputArea>
-        {err && <Warnning>請重新輸入英文國家名</Warnning>}
-        <SelectArea ref={select}>
+        {err && <Warning>請重新輸入英文國家名</Warning>}
+        <SelectArea>
           {allCountryData ? (
             <SelectBox
               allCountryData={allCountryData}

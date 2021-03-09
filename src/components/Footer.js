@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { COLOR } from "../constants/style";
 
 const PageFooter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: ${COLOR.secondColor};
   width: 100%;
   position: fixed;
   bottom: 0;
