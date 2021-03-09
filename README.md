@@ -1,5 +1,7 @@
 # Create-React-App 作品
 
+作品網址：https://thomasleihsu.github.io/Covid/#/
+
 ## 說明：
 
 首頁呈現當天全球疫情的資料，包含新確診人數、死亡人數以及痊癒人數等等。
