@@ -4,9 +4,17 @@
 
 首頁呈現當天全球疫情的資料，包含新確診人數、死亡人數以及痊癒人數等等。
 
+![image](https://github.com/ThomasLeiHsu/Covid/blob/developer/src/screenShot/homepage.png)
+
 另外設有搜尋單一國家的頁面，可以用來搜尋想要知道資訊的國家名
 
+![image](https://github.com/ThomasLeiHsu/Covid/blob/developer/src/screenShot/searchpage.png)
+![image](https://github.com/ThomasLeiHsu/Covid/blob/developer/src/screenShot/searchpage2.png)
+
 如果想要看當天哪個國家疫情相對嚴重的話，可以從排行榜中看到全球各大洲當天新增確診人數的前五名
+
+![image](https://github.com/ThomasLeiHsu/Covid/blob/developer/src/screenShot/boardpage.png)
+![image](https://github.com/ThomasLeiHsu/Covid/blob/developer/src/screenShot/boardpage2.png)
 
 ## 使用技術：
 
