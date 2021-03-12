@@ -18,6 +18,8 @@
 ![image](https://github.com/ThomasLeiHsu/Covid/blob/developer/src/screenShot/boardpage.png)
 ![image](https://github.com/ThomasLeiHsu/Covid/blob/developer/src/screenShot/boardpage2.png)
 
+![image](https://github.com/ThomasLeiHsu/Covid/blob/developer/src/screenShot/screengif.gif)
+
 ## 使用技術：
 
 ### 1.react SAP 應用
