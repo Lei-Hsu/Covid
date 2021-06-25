@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { device } from "../../media/media";
 import { COLOR, FONT } from "../../constants/style";
+import { populationFormat } from '../../Handler'
 
 const SearchDataBoxWrapper = styled.div`
   width: 100%;
@@ -62,23 +63,23 @@ function SearchDataBox({ countryData }) {
       <Detail>
         <DetailBox>
           <h2>人口總數</h2>
-          <p>{countryData.population || "無資料"}</p>
+          <p>{populationFormat(countryData.population) || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>確診人數</h2>
-          <p>{countryData.cases.total || "無資料"}</p>
+          <p>{populationFormat(countryData.cases.total) || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>死亡人數</h2>
-          <p>{countryData.deaths.total || "無資料"}</p>
+          <p>{populationFormat(countryData.deaths.total) || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>今日新增</h2>
-          <p>{countryData.cases.new || "無資料"}</p>
+          <p>{populationFormat(countryData.cases.new) || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>康復人數</h2>
-          <p>{countryData.cases.recovered || "無資料"}</p>
+          <p>{populationFormat(countryData.cases.recovered) || "無資料"}</p>
         </DetailBox>
         <DetailBox>
           <h2>搜尋日期</h2>
