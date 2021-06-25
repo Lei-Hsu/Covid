@@ -34,12 +34,10 @@ export default function SelectBox({
   };
 
   return (
-    <div>
+    <>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">Country</InputLabel>
         <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
@@ -59,6 +57,6 @@ export default function SelectBox({
           })}
         </Select>
       </FormControl>
-    </div>
+    </>
   );
 }

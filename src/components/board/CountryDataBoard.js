@@ -1,118 +1,11 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import { device } from "../../media/media";
 import useFetchBoardCountry from "../../customHooks/useFetchBoardCountry";
 import { Pie } from "react-chartjs-2";
-import { animation } from "../../animation";
-import { COLOR, FONT } from "../../constants/style";
+import { BoardWrapper, LocationBtnArea, LocationBtn, DataArea, Board, Location, TitleList, DataList, Chart, Time } from './Theme/index'
+import { populationFormat } from '../../Handler'
 
-const BoardWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  ${animation}
-`;
-const LocationBtnArea = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 40px;
-  @media ${device.pad} {
-    margin-bottom: 40px;
-  }
-`;
-const LocationBtn = styled.button`
-  width: 16.6%;
-  height: 30px;
-  border: none;
-  background: none;
-  font-size: ${FONT.sm};
-  font-weight: bold;
-  :hover {
-    border-bottom: solid red 2px;
-  }
-  @media ${device.pad} {
-    font-size: ${FONT.md};
-  }
-`;
-const DataArea = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  @media ${device.pad} {
-    flex-direction: row;
-  }
-`;
-const Board = styled.div`
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: space-between;
-  @media ${device.pad} {
-    width: 50%;
-    padding: 0 10px;
-  }
-`;
-const Location = styled.h1`
-  margin: 25px auto;
-  font-size: 26px;
-  color: #000;
-`;
-const TitleList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  li {
-    font-size: ${FONT.sm};
-    font-weight: 500;
-  }
-`;
-const DataList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 10px;
-  border-bottom: #b3b3b3 solid 2px;
-  li {
-    width: 25%;
-    text-align: center;
-    :nth-child(1) {
-      text-align: left;
-      font-size: ${FONT.sm};
-      font-weight: 600;
-    }
-    :nth-child(4) {
-      text-align: right;
-    }
-    :nth-child(even) {
-      color: ${COLOR.mainColor};
-    }
-  }
-`;
-const Chart = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 30px;
-  @media ${device.pad} {
-    width: 50%;
-  }
-`;
-const Time = styled.h1`
-  margin-top: 50px;
-  color: ${COLOR.mainColor};
-  font-size: ${FONT.sm};
-  @media ${device.pad} {
-    font-size: 30px;
-  }
-`;
+
+
 function CountryDataBoard({ wholeData }) {
   const {
     global,
@@ -153,22 +46,34 @@ function CountryDataBoard({ wholeData }) {
   return (
     <BoardWrapper>
       <LocationBtnArea>
-        <LocationBtn onMouseMove={() => changeArea(global, "全球")}>
+        <LocationBtn
+          onMouseMove={() => changeArea(global, "全球")}
+        >
           全球
         </LocationBtn>
-        <LocationBtn onMouseMove={() => changeArea(asia, "亞洲")}>
+        <LocationBtn
+          onMouseMove={() => changeArea(asia, "亞洲")}
+        >
           亞洲
         </LocationBtn>
-        <LocationBtn onMouseMove={() => changeArea(europe, "歐洲")}>
+        <LocationBtn
+          onMouseMove={() => changeArea(europe, "歐洲")}
+        >
           歐洲
         </LocationBtn>
-        <LocationBtn onMouseMove={() => changeArea(americaTotal, "美洲")}>
+        <LocationBtn
+          onMouseMove={() => changeArea(americaTotal, "美洲")}
+        >
           美洲
         </LocationBtn>
-        <LocationBtn onMouseMove={() => changeArea(africa, "非洲")}>
+        <LocationBtn
+          onMouseMove={() => changeArea(africa, "非洲")}
+        >
           非洲
         </LocationBtn>
-        <LocationBtn onMouseMove={() => changeArea(oceania, "大洋")}>
+        <LocationBtn
+          onMouseMove={() => changeArea(oceania, "大洋")}
+        >
           大洋洲
         </LocationBtn>
       </LocationBtnArea>
@@ -183,19 +88,25 @@ function CountryDataBoard({ wholeData }) {
             <li>新增死亡</li>
             <li>總確診人數</li>
           </TitleList>
-          {nowArea.map((data, i) => {
-            return (
-              <DataList key={i}>
-                <li>{data.country.toUpperCase()}</li>
-                <li>{data.cases.new || 0}</li>
-                <li>{data.deaths.new || 0}</li>
-                <li>{data.cases.total}</li>
-              </DataList>
-            );
-          })}
+          {
+            nowArea.map((data, i) => {
+              return (
+                <DataList key={i}>
+                  <li>{data.country.toUpperCase()}</li>
+                  <li>{populationFormat(data.cases.new) || 0}</li>
+                  <li>{populationFormat(data.deaths.new) || 0}</li>
+                  <li>{populationFormat(data.cases.total)}</li>
+                </DataList>
+              );
+            })
+          }
         </Board>
         <Chart>
-          <Pie data={data} width={"70%"} height={"40%"} />
+          <Pie
+            data={data}
+            width={"70%"}
+            height={"40%"}
+          />
         </Chart>
       </DataArea>
       <Time>
