@@ -1,20 +1,11 @@
 import React from "react";
-import styled from "styled-components";
-import { device } from "../../media/";
 import CountryDataBoard from "../../components/board/CountryDataBoard";
 import { useEffect, useState } from "react";
 import { API_KEY } from "../../KEY/APIKEY";
 import LoadingPage from "../LoadingPage";
+import { CountryDataWrapper } from './Theme/index'
 
-const CountryDataWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  @media ${device.pad} {
-    margin-top: 40px;
-  }
-`;
+
 function BoardPage() {
   const [wholeData, setWholeData] = useState(null);
   useEffect(() => {
